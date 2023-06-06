@@ -1,6 +1,7 @@
 // import { Outlet, Link } from "react-router-dom"
 // import 'materialize-css/dist/css/materialize.min.css';
 // import '../materialize';
+import { useState } from "react";
 
 import styled from "styled-components";
 
@@ -15,28 +16,62 @@ import instagram from "../images/instagram.png"
 import linkedIn from "../images/linkedin.png"
 import phone from "../images/smartphone-call.png"
 
+import background from "../images/tech.jpg"
+
 const Main = styled.main`
     padding-left: 310px;
     padding-right: 300px;
 `;
 
+const Icons = styled.img`
+    width: 24px;
+    height: 24px;
+    margin: 5px
+`;
+
+const User = styled.div`
+    margin: auto;
+    width: 50%;
+`;
+
 const Navbar = () => {
+    const [activeEl, setActiveEl] = useState();
+
+    const toggleSidenav = (event) => {
+        event.preventDefault();
+        if (activeEl) activeEl.classList.toggle('active')
+        setActiveEl(event.target.parentNode)
+        event.target.parentNode.classList.toggle('active')
+    }
+
     return (
         <>
-            <ul id="slide-out" class="sidenav sidenav-fixed">
-                <li><div class="user-view">
-                    <div class="background">
-                        {/* <img src="../public/profile-avatar.png" alt="office" /> */}
-                    </div>
-                    {/* <a href="#user"><img class="circle" src={avatar} alt="user" /></a>
-                    <a href="#name"><span class="black-text name">John Doe</span></a>
-                    <a href="#email"><span class="black-text email">jdandturk@gmail.com</span></a> */}
-                </div></li>
-                <li><a href="#about"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-                <li class="active"><a href="#projects">Second Link</a></li>
+            <ul id="slide-out" className="sidenav sidenav-fixed">
+                <li>
+                    <User className="user-view">
+                        {/* <div className="background">
+                            <img src={background} alt="tech background" />
+                        </div> */}
+                        <a href="#user"><img className="circle" src={avatar} alt="user" /></a>
+                        <a href="#name"><span className="black-text name">Victor Lopez</span></a>
+                    </User>
+                </li>
+                <li onClick={toggleSidenav}><a className="waves-effect" href="#about">About</a></li>
+                <li onClick={toggleSidenav}><a className="waves-effect" href="#projects">Projects</a></li>
                 {/* <li><div class="divider"></div></li> */}
                 {/* <li><a class="subheader" href="#!">Subheader</a></li> */}
-                <li><a class="waves-effect" href="#experience">Third Link With Waves</a></li>
+                <li onClick={toggleSidenav}><a className="waves-effect" href="#experience">Experience</a></li>
+
+                <li>
+                    <div>
+                        <a href="#email"><Icons src={email} alt="email" /></a>
+                        <a href="#phone"><Icons src={phone} alt="phone" /></a>
+                        <a href="#github"><Icons src={github} alt="github" /></a>
+                        <a href="#linkedIn"><Icons src={linkedIn} alt="linkedIn" /></a>
+                        <a href="#instagram"><Icons src={instagram} alt="instagram" className="icons" /></a>
+                    </div>
+                </li>
+                
                 {/* <footer class="page-footer">
                     <div class="container">
                         <div class="row">
