@@ -31,8 +31,22 @@ const Icons = styled.img`
 
 const User = styled.div`
     margin: auto;
-    width: 50%;
+    width: 100%;
+    text-align: center;
 `;
+
+const Img = styled.img`
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+`
+
+// const Footer = styled.footer`
+//     height: 40px;
+//     position: fixed;
+//     bottom: 10%;
+// `
 
 const Navbar = () => {
     const [activeEl, setActiveEl] = useState();
@@ -46,58 +60,33 @@ const Navbar = () => {
 
     return (
         <>
-            <ul id="slide-out" className="sidenav sidenav-fixed">
-                <li>
-                    <User className="user-view">
-                        {/* <div className="background">
+            <div id="slide-out" className="sidenav sidenav-fixed">
+                <ul>
+                    <li>
+                        <User className="user-view">
+                            {/* <div className="background">
                             <img src={background} alt="tech background" />
                         </div> */}
-                        <a href="#user"><img className="circle" src={avatar} alt="user" /></a>
-                        <a href="#name"><span className="black-text name">Victor Lopez</span></a>
-                    </User>
-                </li>
-                <li onClick={toggleSidenav}><a className="waves-effect" href="#about">About</a></li>
-                <li onClick={toggleSidenav}><a className="waves-effect" href="#projects">Projects</a></li>
-                {/* <li><div class="divider"></div></li> */}
-                {/* <li><a class="subheader" href="#!">Subheader</a></li> */}
-                <li onClick={toggleSidenav}><a className="waves-effect" href="#experience">Experience</a></li>
-
-                <li>
-                    <div>
-                        <a href="#email"><Icons src={email} alt="email" /></a>
+                            <a href="#user"><Img className="circle" src={avatar} alt="user" /></a>
+                            <a href="#name"><span className="black-text name">Victor Lopez</span></a>
+                            <a href="#email"><Icons src={email} alt="email" /></a>
                         <a href="#phone"><Icons src={phone} alt="phone" /></a>
                         <a href="#github"><Icons src={github} alt="github" /></a>
                         <a href="#linkedIn"><Icons src={linkedIn} alt="linkedIn" /></a>
                         <a href="#instagram"><Icons src={instagram} alt="instagram" className="icons" /></a>
-                    </div>
-                </li>
-                
-                {/* <footer class="page-footer">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col l6 s12">
-                                <h5 class="white-text">Footer Content</h5>
-                                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                            </div>
-                            <div class="col l4 offset-l2 s12">
-                                <h5 class="white-text">Links</h5>
-                                <ul>
-                                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer-copyright">
-                        <div class="container">
-                            © 2014 Copyright Text
-                            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-                        </div>
-                    </div>
-                </footer> */}
-            </ul>
+                        </User>
+                    </li>
+                    <li onClick={toggleSidenav}><a className="waves-effect" href="#about">About</a></li>
+                    <li onClick={toggleSidenav}><a className="waves-effect" href="#projects">Projects</a></li>
+                    <li onClick={toggleSidenav}><a className="waves-effect" href="#experience">Experience</a></li>
+                </ul>
+
+                {/* <Footer className="page-footer"> */}
+                    <User>
+                        
+                    </User>
+                {/* </Footer> */}
+            </div>
 
 
             <a href="#!" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
