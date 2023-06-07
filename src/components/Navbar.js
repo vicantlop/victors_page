@@ -19,14 +19,14 @@ import phone from "../images/smartphone-call.png"
 import background from "../images/tech.jpg"
 
 const Main = styled.main`
-    padding-left: 310px;
-    padding-right: 300px;
+    padding-left: 350px;
+    padding-right: 50px;
 `;
 
 const Icons = styled.img`
     width: 24px;
     height: 24px;
-    margin: 5px
+    margin: 8px;
 `;
 
 const User = styled.div`
@@ -42,11 +42,10 @@ const Img = styled.img`
     width: 40%;
 `
 
-// const Footer = styled.footer`
-//     height: 40px;
-//     position: fixed;
-//     bottom: 10%;
-// `
+const Contacts = styled.div`
+    margin: 20px 15px 0px 15px;
+    height: 50px
+`
 
 const Navbar = () => {
     const [activeEl, setActiveEl] = useState();
@@ -65,27 +64,24 @@ const Navbar = () => {
                     <li>
                         <User className="user-view">
                             {/* <div className="background">
-                            <img src={background} alt="tech background" />
-                        </div> */}
+                                <img src={background} alt="tech background" />
+                            </div> */}
                             <a href="#user"><Img className="circle" src={avatar} alt="user" /></a>
-                            <a href="#name"><span className="black-text name">Victor Lopez</span></a>
-                            <a href="#email"><Icons src={email} alt="email" /></a>
-                        <a href="#phone"><Icons src={phone} alt="phone" /></a>
-                        <a href="#github"><Icons src={github} alt="github" /></a>
-                        <a href="#linkedIn"><Icons src={linkedIn} alt="linkedIn" /></a>
-                        <a href="#instagram"><Icons src={instagram} alt="instagram" className="icons" /></a>
+                            <a href="#name"><div style={{ fontSize: 40 }} className="black-text name">Victor Lopez</div></a>
+                            <Contacts>
+                                <a href="#email"><Icons src={email} alt="email" /></a>
+                                <a href="#phone"><Icons src={phone} alt="phone" /></a>
+                                <a href="#github"><Icons src={github} alt="github" /></a>
+                                <a href="#linkedIn"><Icons src={linkedIn} alt="linkedIn" /></a>
+                                <a href="#instagram"><Icons src={instagram} alt="instagram" className="icons" /></a>
+                            </Contacts>
+
                         </User>
                     </li>
                     <li onClick={toggleSidenav}><a className="waves-effect" href="#about">About</a></li>
                     <li onClick={toggleSidenav}><a className="waves-effect" href="#projects">Projects</a></li>
-                    <li onClick={toggleSidenav}><a className="waves-effect" href="#experience">Experience</a></li>
+                    <li onClick={toggleSidenav}><a className="waves-effect" href="#experience">Resume</a></li>
                 </ul>
-
-                {/* <Footer className="page-footer"> */}
-                    <User>
-                        
-                    </User>
-                {/* </Footer> */}
             </div>
 
 
@@ -101,7 +97,7 @@ const Navbar = () => {
                         <p><Projects /></p>
                     </div>
 
-                    <div id="experience" class="section scrollspy">
+                    <div id="resume" class="section scrollspy">
                         <p><Contact /> </p>
                     </div>
                 </div>
