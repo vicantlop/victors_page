@@ -77,13 +77,13 @@ const Navbar = () => {
                 setInfo("(760) 562 - 5829");
                 break;
             case "github":
-                setInfo("https://github.com/vicantlop")
+                setInfo(<a href="https://github.com/vicantlop" target="_blank" rel="noreferrer">https://github.com/vicantlop</a>)
                 break;
             case "linkedIn":
-                setInfo("linkedIn")
+                setInfo(<a href="https://www.linkedin.com/in/victor-lopez-se/" target="_blank" rel="noreferrer">https://www.linkedin.com/in/victor-lopez-se/</a>)
                 break;
             case "instagram":
-                setInfo("instagram")
+                setInfo(<a href="https://www.instagram.com/victor_a_lopez/" target="_blank" rel="noreferrer">https://www.instagram.com/victor_a_lopez/</a>)
                 break;
             default:
                 break;
@@ -104,11 +104,11 @@ const Navbar = () => {
                             <a href="#user"><Img className="circle" src={avatar} alt="user" /></a>
                             <a href="#name"><div style={{ fontSize: 40 }} className="black-text name">Victor Lopez</div></a>
                             <Icons>
-                                <a href="#email"><Icon src={email} alt="email" onClick={showInfo} /></a>
-                                <a href="#phone"><Icon src={phone} alt="phone" onClick={showInfo} /></a>
-                                <a href="#github"><Icon src={github} alt="github" onClick={showInfo} /></a>
-                                <a href="#linkedIn"><Icon src={linkedIn} alt="linkedIn" onClick={showInfo} /></a>
-                                <a href="#instagram"><Icon src={instagram} alt="instagram" onClick={showInfo} /></a>
+                                <Icon src={email} alt="email" onClick={showInfo} />
+                                <Icon src={phone} alt="phone" onClick={showInfo} />
+                                <Icon src={github} alt="github" onClick={showInfo} />
+                                <Icon src={linkedIn} alt="linkedIn" onClick={showInfo} />
+                                <Icon src={instagram} alt="instagram" onClick={showInfo} />
                             </Icons>
                         </User>
                     </li>
