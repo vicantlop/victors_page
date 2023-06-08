@@ -15,6 +15,7 @@ import github from "../images/github.png"
 import instagram from "../images/instagram.png"
 import linkedIn from "../images/linkedin.png"
 import phone from "../images/smartphone-call.png"
+import pic from "../images/profile-pic.jpg"
 
 import background from "../images/tech.jpg"
 
@@ -101,7 +102,7 @@ const Navbar = () => {
                             {/* <div className="background">
                                 <img src={background} alt="tech background" />
                             </div> */}
-                            <a href="#user"><Img className="circle" src={avatar} alt="user" /></a>
+                            <a href="#user"><Img className="circle" src={pic} alt="user" style={{height: 100, width: 100}}/></a>
                             <a href="#name"><div style={{ fontSize: 40 }} className="black-text name">Victor Lopez</div></a>
                             <Icons>
                                 <Icon src={email} alt="email" onClick={showInfo} />
