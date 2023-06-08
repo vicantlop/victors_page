@@ -23,7 +23,7 @@ const Main = styled.main`
     padding-right: 50px;
 `;
 
-const Icons = styled.img`
+const Icon = styled.img`
     width: 24px;
     height: 24px;
     margin: 8px;
@@ -42,19 +42,54 @@ const Img = styled.img`
     width: 40%;
 `
 
-const Contacts = styled.div`
+const Icons = styled.div`
     margin: 20px 15px 0px 15px;
     height: 50px
+`
+const Contacts = styled.div`
+    text-align: center;
 `
 
 const Navbar = () => {
     const [activeEl, setActiveEl] = useState();
+    const [openedIcon, setOpenedIcon] = useState('');
+    const [info, setInfo] = useState('');
 
     const toggleSidenav = (event) => {
         event.preventDefault();
         if (activeEl) activeEl.classList.toggle('active')
         setActiveEl(event.target.parentNode)
         event.target.parentNode.classList.toggle('active')
+    }
+
+    const showInfo = (event) => {
+        event.preventDefault();
+        let selected = event.target.alt
+        if (openedIcon === selected) {
+            setInfo('')
+            selected = ''
+        }
+        switch (selected) {
+            case "email":
+                setInfo("vicantlop@gmail.com");
+                break;
+            case "phone":
+                setInfo("(760) 562 - 5829");
+                break;
+            case "github":
+                setInfo("https://github.com/vicantlop")
+                break;
+            case "linkedIn":
+                setInfo("linkedIn")
+                break;
+            case "instagram":
+                setInfo("instagram")
+                break;
+            default:
+                break;
+        }
+
+        setOpenedIcon(selected)
     }
 
     return (
@@ -68,16 +103,23 @@ const Navbar = () => {
                             </div> */}
                             <a href="#user"><Img className="circle" src={avatar} alt="user" /></a>
                             <a href="#name"><div style={{ fontSize: 40 }} className="black-text name">Victor Lopez</div></a>
-                            <Contacts>
-                                <a href="#email"><Icons src={email} alt="email" /></a>
-                                <a href="#phone"><Icons src={phone} alt="phone" /></a>
-                                <a href="#github"><Icons src={github} alt="github" /></a>
-                                <a href="#linkedIn"><Icons src={linkedIn} alt="linkedIn" /></a>
-                                <a href="#instagram"><Icons src={instagram} alt="instagram" className="icons" /></a>
-                            </Contacts>
-
+                            <Icons>
+                                <a href="#email"><Icon src={email} alt="email" onClick={showInfo} /></a>
+                                <a href="#phone"><Icon src={phone} alt="phone" onClick={showInfo} /></a>
+                                <a href="#github"><Icon src={github} alt="github" onClick={showInfo} /></a>
+                                <a href="#linkedIn"><Icon src={linkedIn} alt="linkedIn" onClick={showInfo} /></a>
+                                <a href="#instagram"><Icon src={instagram} alt="instagram" onClick={showInfo} /></a>
+                            </Icons>
                         </User>
                     </li>
+                    {info ? <li style={{ height: 50 }}>
+                        <div className="divider" style={{ margin: 0 }}></div>
+                        <Contacts className="subheader" style={{ height: 50 }}>
+                            {info}
+                        </Contacts>
+                        <div className="divider" style={{ margin: 0 }}></div>
+                    </li> : null}
+
                     <li onClick={toggleSidenav}><a className="waves-effect" href="#about">About</a></li>
                     <li onClick={toggleSidenav}><a className="waves-effect" href="#projects">Projects</a></li>
                     <li onClick={toggleSidenav}><a className="waves-effect" href="#experience">Resume</a></li>
@@ -85,19 +127,19 @@ const Navbar = () => {
             </div>
 
 
-            <a href="#!" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a href="#!" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
 
-            <Main class="row">
-                <div class="col s12 m9 l10">
-                    <div id="about" class="section scrollspy">
+            <Main className="row">
+                <div className="col s12 m9 l10">
+                    <div id="about" className="section scrollspy">
                         <p><About /> </p>
                     </div>
 
-                    <div id="projects" class="section scrollspy">
+                    <div id="projects" className="section scrollspy">
                         <p><Projects /></p>
                     </div>
 
-                    <div id="resume" class="section scrollspy">
+                    <div id="resume" className="section scrollspy">
                         <p><Contact /> </p>
                     </div>
                 </div>
