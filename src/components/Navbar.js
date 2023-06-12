@@ -16,6 +16,7 @@ import instagram from "../images/instagram.png"
 import linkedIn from "../images/linkedin.png"
 import phone from "../images/smartphone-call.png"
 import pic from "../images/profile-pic.jpg"
+// import resume from "../files/resume.pdf"
 
 import background from "../images/tech.jpg"
 
@@ -72,10 +73,10 @@ const Navbar = () => {
         }
         switch (selected) {
             case "email":
-                setInfo(<div style={{textAlign : "center"}}>vicantlop@gmail.com</div>);
+                setInfo(<div style={{ textAlign: "center" }}>vicantlop@gmail.com</div>);
                 break;
             case "phone":
-                setInfo(<div style={{textAlign : "center"}}>(760) 562 - 5829</div>);
+                setInfo(<div style={{ textAlign: "center" }}>(760) 562 - 5829</div>);
                 break;
             case "github":
                 setInfo(<Contacts href="https://github.com/vicantlop" target="_blank" rel="noreferrer">github.com/vicantlop</Contacts>)
@@ -102,8 +103,8 @@ const Navbar = () => {
                             {/* <div className="background">
                                 <img src={background} alt="tech background" />
                             </div> */}
-                            <a href="#user"><Img className="circle" src={pic} alt="user" style={{height: 100, width: 100}}/></a>
-                            <a href="#name"><div style={{ fontSize: 40 }} className="black-text name">Victor Lopez</div></a>
+                            <Img className="circle" src={pic} alt="user" style={{ height: 100, width: 100 }} />
+                            <div style={{ fontSize: 40 }} className="black-text name">Victor Lopez</div>
                             <Icons>
                                 <Icon src={email} alt="email" onClick={showInfo} />
                                 <Icon src={phone} alt="phone" onClick={showInfo} />
@@ -115,15 +116,13 @@ const Navbar = () => {
                     </li>
                     {info ? <li style={{ height: 50 }}>
                         <div className="divider" style={{ margin: 0 }}></div>
-                        {/* <Contacts className="subheader" style={{ height: 50 }}> */}
-                            {info}
-                        {/* </Contacts> */}
+                        {info}
                         <div className="divider" style={{ margin: 0 }}></div>
                     </li> : null}
 
                     <li onClick={toggleSidenav}><a className="waves-effect" href="#about">About</a></li>
                     <li onClick={toggleSidenav}><a className="waves-effect" href="#projects">Projects</a></li>
-                    <li onClick={toggleSidenav}><a className="waves-effect" href="#experience">Resume</a></li>
+                    <li><a className="waves-effect" href="resume.pdf" target="_blank" rel="noreferrer">Resume</a></li>
                 </ul>
             </div>
 
