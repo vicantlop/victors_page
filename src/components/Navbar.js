@@ -47,7 +47,7 @@ const Icons = styled.div`
     margin: 20px 15px 0px 15px;
     height: 50px
 `
-const Contacts = styled.div`
+const Contacts = styled.a`
     text-align: center;
 `
 
@@ -72,19 +72,19 @@ const Navbar = () => {
         }
         switch (selected) {
             case "email":
-                setInfo("vicantlop@gmail.com");
+                setInfo(<div style={{textAlign : "center"}}>vicantlop@gmail.com</div>);
                 break;
             case "phone":
-                setInfo("(760) 562 - 5829");
+                setInfo(<div style={{textAlign : "center"}}>(760) 562 - 5829</div>);
                 break;
             case "github":
-                setInfo(<a href="https://github.com/vicantlop" target="_blank" rel="noreferrer">https://github.com/vicantlop</a>)
+                setInfo(<Contacts href="https://github.com/vicantlop" target="_blank" rel="noreferrer">github.com/vicantlop</Contacts>)
                 break;
             case "linkedIn":
-                setInfo(<a href="https://www.linkedin.com/in/victor-lopez-se/" target="_blank" rel="noreferrer">https://www.linkedin.com/in/victor-lopez-se/</a>)
+                setInfo(<Contacts href="https://www.linkedin.com/in/victor-lopez-se/" target="_blank" rel="noreferrer">linkedin.com/in/victor-lopez-se/</Contacts>)
                 break;
             case "instagram":
-                setInfo(<a href="https://www.instagram.com/victor_a_lopez/" target="_blank" rel="noreferrer">https://www.instagram.com/victor_a_lopez/</a>)
+                setInfo(<Contacts href="https://www.instagram.com/victor_a_lopez/" target="_blank" rel="noreferrer">instagram.com/victor_a_lopez/</Contacts>)
                 break;
             default:
                 break;
@@ -115,9 +115,9 @@ const Navbar = () => {
                     </li>
                     {info ? <li style={{ height: 50 }}>
                         <div className="divider" style={{ margin: 0 }}></div>
-                        <Contacts className="subheader" style={{ height: 50 }}>
+                        {/* <Contacts className="subheader" style={{ height: 50 }}> */}
                             {info}
-                        </Contacts>
+                        {/* </Contacts> */}
                         <div className="divider" style={{ margin: 0 }}></div>
                     </li> : null}
 
