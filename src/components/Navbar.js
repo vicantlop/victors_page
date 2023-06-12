@@ -1,6 +1,3 @@
-// import { Outlet, Link } from "react-router-dom"
-// import 'materialize-css/dist/css/materialize.min.css';
-// import '../materialize';
 import { useState } from "react";
 
 import styled from "styled-components";
@@ -9,15 +6,12 @@ import About from "./About";
 import Projects from "./Projects";
 import Contact from "./Contact";
 
-import avatar from "../images/profile-avatar.png"
 import email from "../images/envelope.png"
 import github from "../images/github.png"
 import instagram from "../images/instagram.png"
 import linkedIn from "../images/linkedin.png"
 import phone from "../images/smartphone-call.png"
 import pic from "../images/profile-pic.jpg"
-// import resume from "../files/resume.pdf"
-
 import background from "../images/tech.jpg"
 
 const Main = styled.main`
@@ -26,9 +20,19 @@ const Main = styled.main`
 `;
 
 const Icon = styled.img`
-    width: 24px;
-    height: 24px;
-    margin: 8px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    &:hover {
+        cursor: pointer;
+        background-color: #eeeeee;
+    }
+    &.active {
+        background-color: #eeeeee;
+    }
+    &.active:hover {
+        background-color: #e0e0e0;
+    }
 `;
 
 const User = styled.div`
@@ -56,6 +60,7 @@ const Navbar = () => {
     const [activeEl, setActiveEl] = useState();
     const [openedIcon, setOpenedIcon] = useState('');
     const [info, setInfo] = useState('');
+    const [activeIcon, setActiveIcon] = useState()
 
     const toggleSidenav = (event) => {
         event.preventDefault();
@@ -66,6 +71,13 @@ const Navbar = () => {
 
     const showInfo = (event) => {
         event.preventDefault();
+        if (activeIcon) activeIcon.classList.toggle('active')
+        setActiveIcon()
+        if (activeIcon !== event.target) {
+            setActiveIcon(event.target)
+            event.target.classList.toggle('active');
+        }
+
         let selected = event.target.alt
         if (openedIcon === selected) {
             setInfo('')
@@ -134,13 +146,8 @@ const Navbar = () => {
                     <div id="about" className="section scrollspy">
                         <p><About /> </p>
                     </div>
-
                     <div id="projects" className="section scrollspy">
                         <p><Projects /></p>
-                    </div>
-
-                    <div id="resume" className="section scrollspy">
-                        <p><Contact /> </p>
                     </div>
                 </div>
             </Main>
