@@ -2,10 +2,6 @@ import { useState } from "react";
 
 import styled from "styled-components";
 
-import About from "./About";
-import Projects from "./Projects";
-import Contact from "./Contact";
-
 import email from "../images/envelope.png"
 import github from "../images/github.png"
 import instagram from "../images/instagram.png"
@@ -14,10 +10,6 @@ import phone from "../images/smartphone-call.png"
 import pic from "../images/profile-pic.jpg"
 import background from "../images/tech.jpg"
 
-const Main = styled.main`
-    padding-left: 350px;
-    padding-right: 50px;
-`;
 
 const Icon = styled.img`
     width: 40px;
@@ -56,7 +48,7 @@ const Contacts = styled.a`
     text-align: center;
 `
 
-const Navbar = () => {
+const SideNav = () => {
     const [activeEl, setActiveEl] = useState();
     const [openedIcon, setOpenedIcon] = useState('');
     const [info, setInfo] = useState('');
@@ -107,7 +99,6 @@ const Navbar = () => {
     }
 
     return (
-        <>
             <div id="slide-out" className="sidenav sidenav-fixed">
                 <ul>
                     <li>
@@ -138,21 +129,7 @@ const Navbar = () => {
                 </ul>
             </div>
 
-
-            <a href="#!" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-
-            <Main className="row">
-                <div className="col s12 m9 l10">
-                    <div id="about" className="section scrollspy">
-                        <p><About /> </p>
-                    </div>
-                    <div id="projects" className="section scrollspy">
-                        <p><Projects /></p>
-                    </div>
-                </div>
-            </Main>
-        </>
     )
 }
 
-export default Navbar;
+export default SideNav;
